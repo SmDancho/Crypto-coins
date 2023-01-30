@@ -8,6 +8,7 @@ export interface dataState {
   status: null | string;
   coins: Array<Icoins> ; // change
   error: string;
+  compare:Array<any>;
 }
 
 const initialState: dataState = {
@@ -15,6 +16,7 @@ const initialState: dataState = {
   status: null,
   coins: [],
   error: '',
+  compare:[]
 };
 
 export const fetchCoinsData = createAsyncThunk(
@@ -44,6 +46,30 @@ export const fetchCoinsData = createAsyncThunk(
     },
 );
 
+export const coinsPriceComapareData = createAsyncThunk(
+  'dataSlice/fetchPriceData', 
+    async (coinId:String | null) => {
+    
+const options = {
+  method: 'GET',
+  url: `https://coinranking1.p.rapidapi.com/coin/${coinId}/exchanges`,
+  params: {
+    referenceCurrencyUuid: "yhjMzLPhuIDl",
+    limit: '20',
+    offset: '0',
+    orderBy: '24hVolume',
+    orderDirection: 'desc'
+  },
+  headers: {
+    'X-RapidAPI-Key': 'd7a164b038msh166c9b02c00e56dp1a4b46jsn86b5659ae3c6',
+    'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+  }
+};
+
+  const data = axios.request(options)
+  return data
+});
+
 export const dataSlice = createSlice({
   name: 'data',
   initialState,
@@ -56,6 +82,13 @@ export const dataSlice = createSlice({
     });
     builder.addCase(fetchCoinsData.fulfilled, (state, action) => {
       state.coins = action.payload.data.data.coins;
+    });
+    //___________
+    builder.addCase(coinsPriceComapareData.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(coinsPriceComapareData.fulfilled, (state, action) => {
+      state.compare = action.payload.data.data.exchanges;
     });
   },
 });

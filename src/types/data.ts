@@ -16,6 +16,8 @@ export interface Icoins {
     symbol: String
     tier: number
     uuid: String
+    recommended:boolean
+    verified:boolean
 
 }
 

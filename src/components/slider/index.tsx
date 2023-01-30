@@ -18,7 +18,7 @@ export const Carousel = () => {
   const dispatch = useAppDispatch();
   const { SliderhNews } = useAppSelector((state: RootState) => state.news);
 
-  console.log(SliderhNews);
+
 
   useEffect(() => {
     dispatch(fetchSliderNews());

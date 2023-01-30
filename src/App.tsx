@@ -1,6 +1,6 @@
 import { HeaderComponent } from "./components/header";
 import {useState,useEffect} from "react"
-import { CoinsPage } from "./pages/coins";
+import { CoinsPage } from "./pages/coins/mainCoins";
 import {Home} from "./pages/home";
 
 import { Routes, Route } from "react-router-dom";
@@ -27,7 +27,10 @@ function App() {
     <div className="App ">
  
         <HeaderComponent />
-        <Home/>
+        <Routes>
+        <Route path={'/'} element={<Home/>} />
+          <Route path={'/Coins/*'} element={<CoinsPage/>} />
+        </Routes>
 
     </div>
   );

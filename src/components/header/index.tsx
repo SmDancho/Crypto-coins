@@ -1,20 +1,19 @@
-import { FC,} from "react";
+import { FC, useState } from "react";
 
-import {  Layout, Menu, } from "antd";
+import { Layout, Menu } from "antd";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const HeaderComponent: FC = () => {
+  const navigate = useNavigate();
+  const { Header } = Layout;
 
-  const { Header} = Layout;
-
-  const navElement = ["Coins", "Exchaing"];
+  const navElement = ["Coins", "Exchaing"]; //add name of page to add navigation 
 
   return (
-    <Layout className="layout">
-      <Header className="header">
-  
-        <Link to="/">
+    <Layout className="layout ">
+      <Header className="header flex">
+        <a href="/">
           <img
             className="logo"
             width={80}
@@ -22,24 +21,24 @@ export const HeaderComponent: FC = () => {
             src="/logo.svg"
             alt="logotype"
           />
-        </Link>
-
+        </a>
         <Menu
+          onClick={(e) => {
+            navigate(e.key);
+          }}
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
-          items={navElement.map((item, index) => {
-            <Link to={item}></Link>;
+          items={navElement.map((item) => {
             const key = item;
+
             return {
               key,
               label: `${key}`,
             };
           })}
         />
+        ;
       </Header>
-
-
     </Layout>
   );
 };

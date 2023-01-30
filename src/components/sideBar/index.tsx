@@ -2,7 +2,8 @@ import { FC, createElement } from "react";
 
 import { Layout, Menu, theme } from "antd";
 
-import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 
 import type { MenuProps } from "antd";
 
@@ -15,28 +16,30 @@ import {
 
 interface propsSideBar {
   collapsed: boolean;
+  subNav: Array<String>;
+  subTitle:string
 }
 
-export const SideBar: FC<propsSideBar> = ({ collapsed }) => {
+
+export const SideBar: FC<propsSideBar> = ({ collapsed,subNav,subTitle }) => {
+
+  const navigate = useNavigate()
   const { Sider } = Layout;
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  
 
   const items2: MenuProps["items"] = [BarChartOutlined].map((icon, index) => {
-    const key = String(index + 1);
+    const key = subTitle;
 
     return {
-      key: `sub${key}`,
+      key: `${key}`,
       icon: createElement(icon),
-      label: `subnav ${key}`,
-
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
+      label: `${key}`,
+      children: subNav.map((item) => {
+        const subKey = item 
         return {
           key: subKey,
-          label: `option${subKey}`,
+          label: `${subKey}`,
         };
       }),
     };
@@ -44,8 +47,11 @@ export const SideBar: FC<propsSideBar> = ({ collapsed }) => {
 
   return (
 
-      <Sider style={{ background: colorBgContainer }} collapsed={collapsed}>
+      <Sider collapsed={collapsed} >
         <Menu
+          onClick = {
+            (e) => {navigate(e.key)}
+          }
           mode="inline"
           theme="dark"
           style={{ height: "100%", borderRight: 0 }}
