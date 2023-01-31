@@ -1,37 +1,37 @@
 import { HeaderComponent } from "./components/header";
-import {useState,useEffect} from "react"
+import { useState, useEffect } from "react";
+
 import { CoinsPage } from "./pages/coins/mainCoins";
-import {Home} from "./pages/home";
+import { Home } from "./pages/home";
+import { FooterComponent } from "./components/footer";
+import {Exchanges}  from "./pages/exchanges";
 
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "antd";
-
 
 function App() {
+  // const [theme, setTheme] = useState<String>("dark");
 
-  const [theme, setTheme] = useState<String>('dark');
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
+  // }, [theme]);
 
+  // const handleThemeSwitch = () => {
+  //   setTheme(theme === "dark" ? "light" : "dark");
+  // };
 
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
   return (
     <div className="App ">
- 
-        <HeaderComponent />
-        <Routes>
-        <Route path={'/'} element={<Home/>} />
-          <Route path={'/Coins/*'} element={<CoinsPage/>} />
-        </Routes>
-
+      <HeaderComponent />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/Coins/*"} element={<CoinsPage />} />
+        <Route path={"/Exchanges/*"} element={<Exchanges />} />
+      </Routes>
+      <FooterComponent />
     </div>
   );
 }

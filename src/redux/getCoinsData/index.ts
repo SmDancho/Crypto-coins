@@ -54,8 +54,8 @@ const options = {
   method: 'GET',
   url: `https://coinranking1.p.rapidapi.com/coin/${coinId}/exchanges`,
   params: {
-    referenceCurrencyUuid: "yhjMzLPhuIDl",
-    limit: '20',
+    referenceCurrencyUuid: "yhjMzLPhuIDl", //show price in usd
+    limit: '20', // Limit of render items 
     offset: '0',
     orderBy: '24hVolume',
     orderDirection: 'desc'

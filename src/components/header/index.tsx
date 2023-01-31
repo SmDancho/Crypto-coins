@@ -8,11 +8,11 @@ export const HeaderComponent: FC = () => {
   const navigate = useNavigate();
   const { Header } = Layout;
 
-  const navElement = ["Coins", "Exchaing"]; //add name of page to add navigation 
+  const navElement = ["Coins", "Exchanges"]; //add name of page to add link
 
   return (
     <Layout className="layout ">
-      <Header className="header flex">
+      <Header className="header flex ">
         <a href="/">
           <img
             className="logo"
