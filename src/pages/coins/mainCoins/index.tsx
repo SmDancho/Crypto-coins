@@ -10,9 +10,8 @@ import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import { fetchCoinsData } from "../../../redux/getCoinsData";
 import { RootState } from "../../../redux/store";
 
-import { CoinsCard } from "../../../components/cards/coinsCard";
+import { CoinsCard } from "../../../components/cards/coinsCard/mainCoinsCard";
 import { Prices } from "../comparePrice";
-
 
 import { Routes, Route } from "react-router-dom";
 
@@ -58,7 +57,8 @@ export const CoinsPage: FC = () => {
               </Content>
             }
           />
-          <Route path="/compare" element={<Prices/>}/> 
+          <Route path="/compare" element={<Prices />} />
+          {/* <Route path="/Markets" element={<Markets/>}/> */}
         </Routes>
       </Layout>
     </>

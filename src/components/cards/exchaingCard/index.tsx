@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Exchanges } from "../../../types/data";
 
-import { Link } from "react-router-dom";
 
 export const ExchangesCard: FC<Exchanges> = ({
   trust_score_rank,

@@ -1,12 +1,11 @@
-import { HeaderComponent } from "./components/header";
-import { useState, useEffect } from "react";
+import { HeaderComponent } from './components/header';
 
-import { CoinsPage } from "./pages/coins/mainCoins";
-import { Home } from "./pages/home";
-import { FooterComponent } from "./components/footer";
-import {Exchanges}  from "./pages/exchanges";
+import { CoinsPage } from './pages/coins/mainCoins';
+import { Home } from './pages/home';
+import { FooterComponent } from './components/footer';
+import { Exchanges } from './pages/exchanges';
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   // const [theme, setTheme] = useState<String>("dark");
@@ -27,9 +26,9 @@ function App() {
     <div className="App ">
       <HeaderComponent />
       <Routes>
-        <Route path={"/"} element={<Home />} />
-        <Route path={"/Coins/*"} element={<CoinsPage />} />
-        <Route path={"/Exchanges/*"} element={<Exchanges />} />
+        <Route path="/" element={<Home />} />
+        <Route path={'/Coins/*'} element={<CoinsPage />} />
+        <Route path={'/Exchanges/*'} element={<Exchanges />} />
       </Routes>
       <FooterComponent />
     </div>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Icoins } from "../../../types/data";
+import { Icoins } from "../../../../types/data";
 
 import { Link } from "react-router-dom";
 
