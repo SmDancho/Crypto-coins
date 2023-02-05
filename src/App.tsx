@@ -1,9 +1,10 @@
-import { HeaderComponent } from './components/header';
+import { HeaderComponent } from '@componetns/header';
 
 import { CoinsPage } from './pages/coins/mainCoins';
 import { Home } from './pages/home';
-import { FooterComponent } from './components/footer';
+import { FooterComponent } from '@componetns/footer';
 import { Exchanges } from './pages/exchanges';
+
 
 import { Routes, Route } from 'react-router-dom';
 

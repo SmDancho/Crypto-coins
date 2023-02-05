@@ -4,7 +4,7 @@ import { Layout, Menu } from "antd";
 
 import { useNavigate } from "react-router-dom";
 
-export const HeaderComponent: FC = () => {
+export  const HeaderComponent: FC = () => {
   const navigate = useNavigate();
   const { Header } = Layout;
 

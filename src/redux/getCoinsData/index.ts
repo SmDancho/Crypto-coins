@@ -6,9 +6,9 @@ import {Icoins} from "../../types/data"
 export interface dataState {
   isLoading: boolean;
   status: null | string;
-  coins: Array<Icoins> ; // change
+  coins: Array<Icoins> ; 
   error: string;
-  compare:Array<any>;
+  compare:Array<Icoins>;
 }
 
 const initialState: dataState = {
