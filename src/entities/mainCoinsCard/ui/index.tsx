@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { Icoins } from '../../../shared/model/types/global'
+import { Icoins } from 'shared/model/types/global'
 
 export const CoinsCard: FC<Icoins> = ({
   rank,

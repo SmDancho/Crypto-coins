@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react'
 import { Layout } from 'antd'
-import { useAppDispatch, useAppSelector } from '../../../app/store'
-import { RootState } from '../../../app/store'
-import { PricesCard } from '../../../entities/pricesCard/export'
+import { useAppDispatch, useAppSelector } from 'app/store'
+import { RootState } from 'app/store'
+import { PricesCard } from 'entities/pricesCard/export'
 import { coinsPriceComapareData } from '../model/redux'
 
 const CurrentcoinId = window.localStorage.getItem('coinId') as string

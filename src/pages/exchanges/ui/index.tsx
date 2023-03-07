@@ -1,10 +1,10 @@
 import { createElement, useEffect, useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
-import { ExchangesCard } from '../../../entities/exchaingCard/export'
+import { ExchangesCard } from 'entities/exchaingCard/export'
 import { fetchExchangesData } from '../model/redux'
-import { useAppDispatch, useAppSelector } from '../../../app/store'
-import { SideBar } from '../../../widgets/sideBar/ui'
+import { useAppDispatch, useAppSelector } from 'app/store'
+import { SideBar } from 'widgets/sideBar/ui'
 
 export const Exchanges = () => {
   const [collapsed, setCollapsed] = useState(false)
