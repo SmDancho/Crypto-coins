@@ -1,15 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { getDefaultMiddleware } from '@reduxjs/toolkit'
+import coinsSlice from 'pages/coins/mainCoins/model/redux'
+import exchangesSlice from 'pages/exchanges/model/redux'
+import newsSlice from 'pages/home/model/redux'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import dataSlice from '../widgets/comparePrice/model/redux'
-import coinsSlice from '../pages/coins/mainCoins/model/redux'
-import exchangesSlice from '../pages/exchanges/model/redux'
-import newsSlice from '../pages/home/model/redux'
-
-const customizedMiddleware = () =>
-  getDefaultMiddleware({
-    serializableCheck: false
-  })
+import dataSlice from 'widgets/comparePrice/model/redux'
 
 export const store = configureStore({
   reducer: {
@@ -17,9 +11,7 @@ export const store = configureStore({
     compareCionsPrice: dataSlice,
     news: newsSlice,
     exchanges: exchangesSlice
-  },
-
-  middleware: (getDefaultMiddleware) => customizedMiddleware()
+  }
 })
 
 export type RootState = ReturnType<typeof store.getState>

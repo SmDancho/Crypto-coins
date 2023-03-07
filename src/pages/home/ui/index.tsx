@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Layout } from 'antd'
 import { Content } from 'antd/es/layout/layout'
-import { useAppDispatch, useAppSelector } from '../../../app/store'
-import { RootState } from '../../../app/store'
-import { NewsCard } from '../../../entities/newsCard/export'
-import { Carousel } from '../../../widgets/slider/export'
+import { useAppDispatch, useAppSelector } from 'app/store'
+import { RootState } from 'app/store'
+import { NewsCard } from 'entities/newsCard/export'
+import { Carousel } from 'widgets/slider/export'
 import { fetchNews } from '../model/redux'
 
 export const Home = () => {
