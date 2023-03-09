@@ -1,11 +1,12 @@
 import { createElement, FC, useEffect, useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
-import { CoinsCard } from 'entities/mainCoinsCard/ui'
-import { Route, Routes } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { RootState } from 'app/store'
+import { CoinsCard } from 'entities/mainCoinsCard/ui'
+import { Link, Route, Routes } from 'react-router-dom'
 import { PricesComponent } from 'widgets/comparePrice/export'
+import { CurrentCoin } from 'widgets/currentCoin/export'
 import { SideBar } from 'widgets/sideBar/ui'
 import { fetchCoinsData } from '../model/redux'
 
@@ -19,7 +20,6 @@ export const CoinsPage: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log(coins)
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -49,15 +49,16 @@ export const CoinsPage: FC = () => {
                     }
                   )}
                 </div>
-
-                <div className="flex justify-center  mt-5 flex-col">
-                  {coins.map((coins, index) => (
-                    <CoinsCard
-                      {...coins}
-                      key={index}
-                    />
-                  ))}
-                </div>
+                
+                  <div className="flex justify-center  mt-5 flex-col">
+                    {coins.map((coins, index) => (
+                      <CoinsCard
+                        {...coins}
+                        key={index}
+                      />
+                    ))}
+                  </div>
+            
               </Content>
             }
           />
@@ -65,7 +66,10 @@ export const CoinsPage: FC = () => {
             path="/compare"
             element={<PricesComponent />}
           />
-          {/* <Route path="/Markets" element={<Markets/>}/> */}
+          <Route
+            path="/coin"
+            element={<CurrentCoin />}
+          />
         </Routes>
       </Layout>
     </>

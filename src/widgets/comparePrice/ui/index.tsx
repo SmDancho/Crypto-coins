@@ -5,18 +5,17 @@ import { RootState } from 'app/store'
 import { PricesCard } from 'entities/pricesCard/export'
 import { coinsPriceComapareData } from '../model/redux'
 
-const CurrentcoinId = window.localStorage.getItem('coinId') as string
+
 
 export const Prices: FC = () => {
+  const CurrentcoinId = window.sessionStorage.getItem('coinId') as string
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(coinsPriceComapareData(CurrentcoinId))
-  }, [dispatch])
+  }, [])
 
   const { compare } = useAppSelector((state: RootState) => state.compareCionsPrice)
-
-  console.log(compare)
 
   const { Content } = Layout
   return (
