@@ -15,6 +15,7 @@ export const Carousel = () => {
 
   useEffect(() => {
     dispatch(fetchSliderNews())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <Swiper
