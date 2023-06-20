@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { Icoins } from 'shared/model/types/global'
+import { instance } from 'shared/utils/axios'
 
 export interface dataState {
   isLoading: boolean
   status: null | string
-  coins: Array<Icoins>
+  coins: Icoins[]
   error: string
 }
 
@@ -27,8 +27,8 @@ export const fetchCoinsData = createAsyncThunk(
       limit: '20',
       offset: '0'
     }
-    const query = new URLSearchParams(params) // create  query string
-    const data = axios.get(`http://localhost:5000/coins/getAllCoins/?${query}`)
+    const query = new URLSearchParams(params) 
+    const data = instance.get(`/coins/getAllCoins/?${query}`)
     return data
   }
 )

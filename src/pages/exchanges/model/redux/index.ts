@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { Exchanges } from '../types'
+import { instance } from 'shared/utils/axios'
 
 export interface dataState {
   isLoading: boolean
@@ -24,11 +24,7 @@ export const fetchExchangesData = createAsyncThunk(
       per_page: limit
     }
     const query = new URLSearchParams(params)
-    const options = {
-      method: 'GET',
-      url: `http://localhost:5000/exchanges/getAllexchanges/?${query}`
-    }
-    const data = axios.request(options)
+    const data = instance.get(`/exchanges/getAllexchanges/?${query}` )
     return data
   }
 )
@@ -43,6 +39,7 @@ export const exchangesSlice = createSlice({
     })
     builder.addCase(fetchExchangesData.fulfilled, (state, action) => {
       state.exchanges = action.payload.data
+      state.isLoading = false
     })
   }
 })

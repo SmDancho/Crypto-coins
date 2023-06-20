@@ -18,6 +18,7 @@ function App() {
           path={'/Coins/*'}
           element={<CoinsPage />}
         />
+
         <Route
           path={'/Exchanges/*'}
           element={<Exchanges />}

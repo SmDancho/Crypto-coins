@@ -1,5 +1,3 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-
 export interface Icoins {
   btcPrice: string
   change: string
@@ -19,6 +17,3 @@ export interface Icoins {
   recommended: boolean
   verified: boolean
 }
-
-
-

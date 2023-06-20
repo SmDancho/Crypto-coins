@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { newsType } from '../types'
+import { instance } from 'shared/utils/axios'
 
 export interface dataState {
   isLoading: boolean
@@ -28,7 +28,7 @@ export const fetchNews = createAsyncThunk(
       language: 'en'
     }
     const query = new URLSearchParams(params)
-    const data = axios.get(`http://localhost:5000/news/Allnews/?${query}`)
+    const data = instance.get(`/news/Allnews/?${query}`)
     return data
   }
 )
@@ -43,7 +43,7 @@ export const fetchSliderNews = createAsyncThunk(
       language: 'en'
     }
     const query = new URLSearchParams(params)
-    const data = axios.get(`http://localhost:5000/news/sliderNews/?${query}`)
+    const data = instance.get(`/news/sliderNews/?${query}`)
     return data
   }
 )
