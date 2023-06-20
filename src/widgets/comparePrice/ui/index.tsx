@@ -1,23 +1,26 @@
 import { FC, useEffect } from 'react'
 import { Layout } from 'antd'
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { RootState } from 'app/store'
 import { PricesCard } from 'entities/pricesCard/export'
+import { useParams } from 'react-router-dom'
+import { Spinner } from 'shared'
 import { coinsPriceComapareData } from '../model/redux'
 
-
-
 export const Prices: FC = () => {
-  const CurrentcoinId = window.sessionStorage.getItem('coinId') as string
+  const { id } = useParams()
   const dispatch = useAppDispatch()
+  const { Content } = Layout
+  const { compare, isLoading } = useAppSelector(
+    (state) => state.compareCionsPrice
+  )
 
   useEffect(() => {
-    dispatch(coinsPriceComapareData(CurrentcoinId))
-  }, [])
+    dispatch(coinsPriceComapareData(id as string))
+  }, [id])
 
-  const { compare } = useAppSelector((state: RootState) => state.compareCionsPrice)
-
-  const { Content } = Layout
+  if (isLoading) {
+    return <Spinner />
+  }
   return (
     <>
       <Layout>

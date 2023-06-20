@@ -17,7 +17,3 @@ export interface Icoins {
   recommended: boolean
   verified: boolean
 }
-
-export interface IcurrentCoin extends Icoins {
-  data: any[]
-}

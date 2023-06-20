@@ -5,6 +5,7 @@ import { ExchangesCard } from 'entities/exchaingCard/export'
 import { fetchExchangesData } from '../model/redux'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { SideBar } from 'widgets/sideBar/ui'
+import {Spinner} from 'shared'
 
 export const Exchanges = () => {
   const [collapsed, setCollapsed] = useState(false)
@@ -16,12 +17,16 @@ export const Exchanges = () => {
   const subTitle = 'Navigate'
 
   const dispatch = useAppDispatch()
-  const { exchanges } = useAppSelector((state) => state.exchanges)
+  const { exchanges , isLoading} = useAppSelector((state) => state.exchanges)
 
   useEffect(() => {
     dispatch(fetchExchangesData(limit.toString()))
-  }, [limit])
+  }, [])
 
+  if (isLoading) {
+    return <Spinner/>
+  }
+  
   return (
     <Layout>
       <SideBar

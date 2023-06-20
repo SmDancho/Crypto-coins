@@ -44,6 +44,7 @@ export const dataSlice = createSlice({
     })
     builder.addCase(coinsPriceComapareData.fulfilled, (state, action) => {
       state.compare = action.payload.data.data.exchanges
+      state.isLoading = false
     })
   }
 })

@@ -43,7 +43,7 @@ export const PricesCard: FC<Icoins> = ({
             )}
           </div>
         </div>
-        <div>{price.slice(0, 10)}</div>
+        <div>{price.slice(0, 10)} $</div>
       </div>
     </>
   )

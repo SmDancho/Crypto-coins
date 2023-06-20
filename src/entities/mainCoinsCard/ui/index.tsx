@@ -12,20 +12,15 @@ export const CoinsCard: FC<Icoins> = ({
   iconUrl,
   uuid
 }) => {
-  const handleClick = () => {
-    window.sessionStorage.setItem('currentID', `${uuid}`)
-  }
-
   return (
     <>
       <div
         className={`flex justify-around w-full text-base items-center text-[#002358] border-2 rounded-lg mt-5`}
       >
-        <Link to={'/Coins/coin'}>
+        <Link to={`/Coins/coin/${uuid}`}>
           <div
             role="button"
             className="flex items-center text-[#002358] w-96"
-            onClick={handleClick}
             tabIndex={0}
           >
             <div className="rank">{rank}</div>
@@ -53,13 +48,8 @@ export const CoinsCard: FC<Icoins> = ({
             {change} %
           </div>
         </div>
-        <Link to={'/Coins/compare'}>
-          <button
-            className="w-[200px] h-10 text-[14px] cursor-pointer"
-            onClick={() => {
-              window.sessionStorage.setItem('coinId', `${uuid}`)
-            }}
-          >
+        <Link to={`/Coins/compare/${uuid}`}>
+          <button className="w-[200px] h-10 text-[14px] cursor-pointer">
             Compare prices
           </button>
         </Link>

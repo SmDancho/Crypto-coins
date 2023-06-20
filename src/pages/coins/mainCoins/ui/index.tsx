@@ -2,9 +2,8 @@ import { createElement, FC, useEffect, useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { RootState } from 'app/store'
 import { CoinsCard } from 'entities/mainCoinsCard/ui'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { PricesComponent } from 'widgets/comparePrice/export'
 import { CurrentCoin } from 'widgets/currentCoin/export'
 import { SideBar } from 'widgets/sideBar/ui'
@@ -13,13 +12,12 @@ import { fetchCoinsData } from '../model/redux'
 export const CoinsPage: FC = () => {
   const dispatch = useAppDispatch()
 
-  const { coins } = useAppSelector((state: RootState) => state.coins)
+  const { coins } = useAppSelector((state) => state.coins)
 
   useEffect(() => {
     dispatch(fetchCoinsData())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -49,25 +47,24 @@ export const CoinsPage: FC = () => {
                     }
                   )}
                 </div>
-                
-                  <div className="flex justify-center  mt-5 flex-col">
-                    {coins.map((coins, index) => (
-                      <CoinsCard
-                        {...coins}
-                        key={index}
-                      />
-                    ))}
-                  </div>
-            
+
+                <div className="flex justify-center  mt-5 flex-col">
+                  {coins.map((coins, index) => (
+                    <CoinsCard
+                      {...coins}
+                      key={index}
+                    />
+                  ))}
+                </div>
               </Content>
             }
           />
           <Route
-            path="/compare"
+            path="/compare/:id"
             element={<PricesComponent />}
           />
           <Route
-            path="/coin"
+            path="/coin/:id"
             element={<CurrentCoin />}
           />
         </Routes>
