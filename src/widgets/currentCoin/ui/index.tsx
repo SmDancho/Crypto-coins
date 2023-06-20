@@ -74,6 +74,7 @@ export const CurrentCoin = () => {
         timePeriod: timeStempt as string
       })
     )
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, timeStempt])
   const symbolColor = coin?.color
   if (isLoading) {
