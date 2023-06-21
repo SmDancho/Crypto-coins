@@ -1,0 +1,1 @@
+export {CarouselNews} from "./ui"

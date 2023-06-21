@@ -4,5 +4,5 @@ export interface newsType {
     description: string
     url: string
     urlToImage: string
-  
+    Content:string
   }

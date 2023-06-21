@@ -3,22 +3,27 @@ import { Content } from 'antd/es/layout/layout'
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { RootState } from 'app/store'
+import { CarouselNews } from 'widgets/carousel'
 import { NewsCard } from 'entities/newsCard/export'
-
-import { fetchNews } from '../model'
+import { fetchNews, fetchSliderNews } from '../model'
 
 export const Home = () => {
   const dispatch = useAppDispatch()
-  const { Latestnews } = useAppSelector((state: RootState) => state.news)
+  const { Latestnews, SliderhNews } = useAppSelector(
+    (state: RootState) => state.news
+  )
 
+  console.log(SliderhNews)
   useEffect(() => {
     dispatch(fetchNews())
+    dispatch(fetchSliderNews())
   }, [])
   return (
     <>
       <Layout className=" dark:bg-black ">
         <Content className="m-auto">
           <div className=" max-w-[1320px] h-96 mt-5 ">
+            <CarouselNews news = {SliderhNews}/>
           </div>
           <h1 className="text-[#002358] font-bold text-2xl  pl-5 mt-5 text-left ">
             Latest news

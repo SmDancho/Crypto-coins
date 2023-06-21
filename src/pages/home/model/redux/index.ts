@@ -54,7 +54,7 @@ export const dataSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // latest news action
-    builder.addCase(fetchNews.pending, (state, action) => {
+    builder.addCase(fetchNews.pending, (state) => {
       state.isLoading = true
     })
     builder.addCase(fetchNews.fulfilled, (state, action) => {
