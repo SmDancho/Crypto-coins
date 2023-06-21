@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { SideBar } from 'widgets'
 import { PricesComponent } from 'widgets/comparePrice'
-import { CurrentCoin } from 'widgets/currentCoin/export'
+import { CurrentCoin } from 'widgets/currentCoin'
 import { CoinsCard } from 'entities/mainCoinsCard'
 import { fetchCoinsData } from '../model'
 

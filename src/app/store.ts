@@ -4,7 +4,7 @@ import coinsSlice from 'pages/coins/mainCoins'
 import exchangesSlice from 'pages/exchanges'
 import newsSlice from 'pages/home'
 import dataSlice from 'widgets/comparePrice'
-import currentCoinSlice from 'widgets/currentCoin/export'
+import currentCoinSlice from 'widgets/currentCoin'
 
 export const store = configureStore({
   reducer: {
