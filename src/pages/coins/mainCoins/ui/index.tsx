@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'app/store'
 import { SideBar } from 'widgets'
 import { PricesComponent } from 'widgets/comparePrice'
 import { CurrentCoin } from 'widgets/currentCoin/export'
-import { CoinsCard } from 'entities'
+import { CoinsCard } from 'entities/mainCoinsCard'
 import { fetchCoinsData } from '../model'
 
 export const CoinsPage: FC = () => {

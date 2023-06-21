@@ -1,1 +1,0 @@
-export {CoinsCard} from "./mainCoinsCard"
