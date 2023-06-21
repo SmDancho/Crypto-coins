@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-import coinsSlice from 'pages/coins/mainCoins'
+// eslint-disable-next-line import/no-internal-modules
+import coinsSlice from 'pages/coins/mainCoins/model/redux'
 import exchangesSlice from 'pages/exchanges'
 import newsSlice from 'pages/home'
 import dataSlice from 'widgets/comparePrice'

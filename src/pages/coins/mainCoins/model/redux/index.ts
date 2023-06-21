@@ -43,6 +43,7 @@ export const coinsSlice = createSlice({
     })
     builder.addCase(fetchCoinsData.fulfilled, (state, action) => {
       state.coins = action.payload.data.data.coins
+      state.isLoading = false
     })
   }
 })

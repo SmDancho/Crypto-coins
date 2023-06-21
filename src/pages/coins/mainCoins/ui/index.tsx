@@ -7,12 +7,13 @@ import { SideBar } from 'widgets'
 import { PricesComponent } from 'widgets/comparePrice'
 import { CurrentCoin } from 'widgets/currentCoin'
 import { CoinsCard } from 'entities/mainCoinsCard'
+import { Spinner } from 'shared'
 import { fetchCoinsData } from '../model'
 
 export const CoinsPage: FC = () => {
   const dispatch = useAppDispatch()
 
-  const { coins } = useAppSelector((state) => state.coins)
+  const { coins, isLoading } = useAppSelector((state) => state.coins)
 
   useEffect(() => {
     dispatch(fetchCoinsData())
@@ -24,6 +25,7 @@ export const CoinsPage: FC = () => {
   const subTitle = 'Navigate'
 
   const { Content } = Layout
+  if (isLoading) return <Spinner />
   return (
     <>
       <Layout>
