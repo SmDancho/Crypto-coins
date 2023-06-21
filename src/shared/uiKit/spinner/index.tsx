@@ -1,6 +1,6 @@
-import { FC } from 'react'
 import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'antd'
+import { FC } from 'react'
 
 const loadSpinner = (
   <LoadingOutlined

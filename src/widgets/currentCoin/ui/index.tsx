@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react'
 import { Layout } from 'antd'
 import { Select, Space } from 'antd'
-import { useAppDispatch, useAppSelector } from 'app/store'
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -14,10 +11,12 @@ import {
   Title,
   Tooltip
 } from 'chart.js'
+import { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import { useParams } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from 'app/store'
 import { Spinner } from 'shared'
-import { currentCoinInfo } from '../model/api'
+import { currentCoinInfo } from '../model'
 
 ChartJS.register(
   CategoryScale,
@@ -32,7 +31,7 @@ ChartJS.register(
 
 export const CurrentCoin = () => {
   const dispatch = useAppDispatch()
-  const [timeStempt, setTimeStempt] = useState<string>()
+  const [timeStempt, setTimeStempt] = useState<string>('24h')
   const { id } = useParams()
   const { Content } = Layout
   const { coin, isLoading } = useAppSelector((state) => state.currentCoin)
@@ -74,13 +73,13 @@ export const CurrentCoin = () => {
         timePeriod: timeStempt as string
       })
     )
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [id, timeStempt])
   const symbolColor = coin?.color
+
   if (isLoading) {
     return <Spinner />
   }
-
   return (
     <Layout>
       <Content className="p-5 h-[100vh]">

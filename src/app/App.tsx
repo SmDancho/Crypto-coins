@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
-import { CoinsPage } from 'pages/coins/mainCoins/ui'
-import { Exchanges } from 'pages/exchanges/ui'
-import { Home } from 'pages/home/ui'
-import { FooterComponent } from 'widgets/footer/export'
-import { HeaderComponent } from 'widgets/header/export'
+import { CoinsPage } from 'pages/coins/mainCoins'
+import { Exchanges } from 'pages/exchanges'
+import { Home } from 'pages/home'
+import { FooterComponent } from 'widgets/footer'
+import { HeaderComponent } from 'widgets/header'
 
 function App() {
   return (

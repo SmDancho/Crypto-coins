@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { newsType } from '../model/types';
+import { newsType } from '../model';
 
 export const NewsCard: FC<newsType> = ({ title, description, urlToImage, url, author }) => {
   return (

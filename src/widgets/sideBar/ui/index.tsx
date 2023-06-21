@@ -1,15 +1,15 @@
-import { createElement, FC } from 'react'
 import { BarChartOutlined } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import type { propsSideBar } from '../model/types/propsType'
 import type { MenuProps } from 'antd'
+import { createElement, FC } from 'react'
+import { useNavigate } from 'react-router-dom'
+import type { propsSideBar } from '../model'
 
 export const SideBar: FC<propsSideBar> = ({ collapsed, subNav, subTitle }) => {
   const navigate = useNavigate()
   const { Sider } = Layout
 
-  const items2: MenuProps['items'] = [BarChartOutlined].map((icon, index) => {
+  const items2: MenuProps['items'] = [BarChartOutlined].map((icon) => {
     const key = subTitle
 
     return {

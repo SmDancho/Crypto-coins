@@ -1,10 +1,10 @@
-import { FC, useEffect } from 'react'
 import { Layout } from 'antd'
+import { FC, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { PricesCard } from 'entities/pricesCard/export'
-import { useParams } from 'react-router-dom'
 import { Spinner } from 'shared'
-import { coinsPriceComapareData } from '../model/redux'
+import { coinsPriceComapareData } from '../model'
 
 export const Prices: FC = () => {
   const { id } = useParams()

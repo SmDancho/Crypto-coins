@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
 import { Layout } from 'antd'
 import { Content } from 'antd/es/layout/layout'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { RootState } from 'app/store'
 import { NewsCard } from 'entities/newsCard/export'
 
-import { fetchNews } from '../model/redux'
+import { fetchNews } from '../model'
 
 export const Home = () => {
   const dispatch = useAppDispatch()
@@ -13,9 +13,7 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(fetchNews())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
   return (
     <>
       <Layout className=" dark:bg-black ">

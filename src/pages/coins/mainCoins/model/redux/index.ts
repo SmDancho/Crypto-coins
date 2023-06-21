@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { Icoins } from 'shared/model/types/global'
-import { instance } from 'shared/utils/axios'
+import { instance } from 'shared'
+import { Icoins } from 'shared'
 
 export interface dataState {
   isLoading: boolean
@@ -38,7 +38,7 @@ export const coinsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchCoinsData.pending, (state, action) => {
+    builder.addCase(fetchCoinsData.pending, (state) => {
       state.isLoading = true
     })
     builder.addCase(fetchCoinsData.fulfilled, (state, action) => {

@@ -1,6 +1,6 @@
+import { Layout, Menu } from "antd";
 import { FC, } from "react";
 
-import { Layout, Menu } from "antd";
 
 import { useNavigate } from "react-router-dom";
 

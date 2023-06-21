@@ -1,11 +1,11 @@
-import { createElement, useEffect, useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
-import { ExchangesCard } from 'entities/exchaingCard/export'
-import { fetchExchangesData } from '../model/redux'
+import { createElement, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { SideBar } from 'widgets/sideBar/ui'
+import { SideBar } from 'widgets'
+import { ExchangesCard } from 'entities/exchaingCard/export'
 import {Spinner} from 'shared'
+import { fetchExchangesData } from '../model'
 
 export const Exchanges = () => {
   const [collapsed, setCollapsed] = useState(false)
@@ -21,7 +21,7 @@ export const Exchanges = () => {
 
   useEffect(() => {
     dispatch(fetchExchangesData(limit.toString()))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [])
 
   if (isLoading) {

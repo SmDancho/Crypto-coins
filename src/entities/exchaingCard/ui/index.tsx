@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Exchanges } from '../model/types'
+import { Exchanges } from '../model'
 
 export const ExchangesCard: FC<Exchanges> = ({
   trust_score_rank,
