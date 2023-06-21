@@ -1,0 +1,1 @@
+export {fetchCoinsData} from "./redux"

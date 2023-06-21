@@ -1,0 +1,1 @@
+export {CoinsCard} from "./mainCoinsCard"

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { newsType } from '../types'
 import { instance } from 'shared/utils/axios'
+import { newsType } from '../types'
 
 export interface dataState {
   isLoading: boolean

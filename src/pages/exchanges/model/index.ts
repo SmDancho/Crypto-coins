@@ -1,0 +1,1 @@
+export {fetchExchangesData} from "./redux"

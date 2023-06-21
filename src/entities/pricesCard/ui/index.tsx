@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Icoins } from 'shared/model/types/global'
+import { Icoins } from 'shared/model/types'
 
 export const PricesCard: FC<Icoins> = ({
   price,

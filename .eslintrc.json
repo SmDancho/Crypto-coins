@@ -15,15 +15,16 @@
           ".jsx"
         ],
         "packages": ["packages/*"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
   },
   "extends": [
-    "react-app",
-    "plugin:jsx-a11y/recommended",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "@feature-sliced/eslint-config/rules/import-order",
+    "@feature-sliced/eslint-config/rules/public-api",
+    "@feature-sliced/eslint-config/rules/layers-slices"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

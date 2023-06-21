@@ -1,13 +1,13 @@
-import { createElement, FC, useEffect, useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Layout } from 'antd'
-import { useAppDispatch, useAppSelector } from 'app/store'
-import { CoinsCard } from 'entities/mainCoinsCard/ui'
+import { createElement, FC, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { PricesComponent } from 'widgets/comparePrice/export'
+import { useAppDispatch, useAppSelector } from 'app/store'
+import { SideBar } from 'widgets'
+import { PricesComponent } from 'widgets/comparePrice'
 import { CurrentCoin } from 'widgets/currentCoin/export'
-import { SideBar } from 'widgets/sideBar/ui'
-import { fetchCoinsData } from '../model/redux'
+import { CoinsCard } from 'entities'
+import { fetchCoinsData } from '../model'
 
 export const CoinsPage: FC = () => {
   const dispatch = useAppDispatch()
@@ -16,7 +16,6 @@ export const CoinsPage: FC = () => {
 
   useEffect(() => {
     dispatch(fetchCoinsData())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [collapsed, setCollapsed] = useState(false)

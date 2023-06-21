@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { newsSliderTypes } from '../model/types'
+import { newsSliderTypes } from '../model'
 
 export const NewsSliderCard: FC<newsSliderTypes> = ({
   title,

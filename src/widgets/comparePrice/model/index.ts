@@ -1,0 +1,1 @@
+export {coinsPriceComapareData} from "./redux"

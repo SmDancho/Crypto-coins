@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
-import { Icoins } from 'shared/model/types/global'
+import { instance } from 'shared'
+import { Icoins } from 'shared'
 
 export interface currentCoinInfoState {
   isLoading: boolean
@@ -20,16 +20,13 @@ export const currentCoinInfo = createAsyncThunk(
   'currentCoin/currentCoinInfo',
 
   async ({ coinId, timePeriod }: { coinId: string; timePeriod: string }) => {
-    const options = {
-      method: 'GET',
-      url: `https://coinranking1.p.rapidapi.com/coin/${coinId}`,
-      params: { referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: timePeriod },
-      headers: {
-        'X-RapidAPI-Key': 'd7a164b038msh166c9b02c00e56dp1a4b46jsn86b5659ae3c6',
-        'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-      }
-    }
-    const data = axios.request(options)
+    const params = { referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: timePeriod  , coinId , 
+    orderBy: 'marketCap',
+    orderDirection: 'desc',
+    limit: '20',
+    offset: '0'}
+    const query = new URLSearchParams(params)
+    const data = instance.get(`/coins/CurrentCoinPrice/?${query}`)
     return data
   }
 )
@@ -38,7 +35,7 @@ const currentCoinSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(currentCoinInfo.pending, (state, action) => {
+    builder.addCase(currentCoinInfo.pending, (state) => {
       state.isLoading = true
     })
     builder.addCase(currentCoinInfo.fulfilled, (state, action) => {
